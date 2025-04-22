@@ -11,7 +11,7 @@ public class CryptoMarche {
 
     public static CryptoMarche getInstance(){
         if(marche == null){ marche = new CryptoMarche();}
-		return marche;
+        return marche;
     }
 
     public void ajouter(Portefeuille p){
@@ -28,7 +28,7 @@ public class CryptoMarche {
         double capital = 0;
         for(Portefeuille p : this.portefeuilles){
             if(p.getProprietaire().equals(proprietaire)){
-                capital += p.capitalEnEuros();
+                capital += p.valeurEnEuros();
             }
         }
 
@@ -46,7 +46,7 @@ public class CryptoMarche {
         double capital = 0;
         for(Portefeuille p : this.portefeuilles){
             if(p.getMonnaie().equals(monnaie)){
-                capital += p.capitalMonnaie(monnaie);
+                capital += p.valeurEnEuros();
             }
         }
 
