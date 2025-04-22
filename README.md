@@ -1,86 +1,101 @@
-**Nom :** LECLERC Jonathan
+# Compte rendu TP3 - Projet Java Git Collaboratif
 
-**Groupe :** 6
+## 1. Clonage et synchronisation du dépôt
 
-**Année :** 2025
-
-**IUT Le Havre - Cours GIT**
-
-### Compte-rendu TP2 Introduction GIT
-
-Dans ce TP, nous passons de l'utilisation d'un dépôt local (vu dans le TP1) à l'utilisation d’un **dépôt distant**, hébergé sur **GitHub**. Cela permet :
-
-- d’avoir une **sauvegarde en ligne** du projet,
-- d’y **accéder depuis n’importe quelle machine**,
-- de **collaborer plus facilement** avec d’autres développeurs (même si ce TP reste individuel).
-
----
-
-### 1. Créer un compte GitHub
-
--> Créez un compte sur [github.com](https://github.com). Ce compte sera utilisé pour héberger vos projets en ligne.
-
----
-
-### 2. Ajouter une clé SSH
-
-Pour une connexion sécurisée entre votre machine et GitHub :
-
-- Vérifiez ou générez une clé SSH :
+- **Porthos** : Accepte l'invitation GitHub d’Athos.
+- **Tous** : Cloner le dépôt dans `~/courseGIT` :
   ```bash
-  ssh-keygen
-  cat ~/.ssh/id_rsa.pub
+  git clone git@github.com:<utilisateur_de_athos>/tp3.git
   ```
-- Copiez la clé publique, puis :
-  - Allez dans **GitHub > Settings > SSH and GPG Keys**
-  - Cliquez sur **New SSH key**
-  - Donnez-lui un nom (ex : “Machine IUT”)
-  - Collez votre clé, puis **validez**.
+- **Vérification** :
+  ```bash
+  ls
+  # Doit afficher : tp1  tp2  tp3
+  ```
+
+## 2. Initialisation du projet
+
+- **Porthos** : Copier `README.md` et `src/Cryptomonnaie.java` de `tp2` à `tp3` (sans copier `.git`). Puis :
+  ```bash
+  git add .
+  git commit -m "Mise à jour fichiers depuis tp2"
+  git push
+  ```
+- **Athos** : Faire un `git pull` pour récupérer les modifications de Porthos.
+
+## 3. Ajout des fichiers de base
+
+- **Athos** : Copier les fichiers suivants dans `tp3/src` :
+  - `CryptoMarche.java`
+  - `Portefeuille.java`
+  - `TestCryptoMarche.java`
+  Puis :
+  ```bash
+  git add .
+  git commit -m "Ajout des fichiers de base pour le marché"
+  git push
+  ```
+
+- **Porthos** : Faire un `git pull` pour obtenir les fichiers.
+
+## 4. Implémentation des classes
+
+- **Athos** : Implémenter dans `CryptoMarche.java` :
+  - `capitalEnEuros(String proprietaire)`
+  - `capitalMonneaie(Cryptomonnaie monnaie)`
+
+- **Porthos** : Implémenter dans `Portefeuille.java` :
+  - `transfertDevise(Portefeuille destination, double montantJetons)`
+  - `achatDevise(double montantEuros)`
+
+- **Tous** : Compiler et exécuter les tests :
+  ```bash
+  javac src/*.java
+  java -cp src TestCryptoMarche
+  ```
+  Objectif : Tous les tests doivent passer (`... OK`).
+
+## 5. Utilisation des branches Git
+
+### Création d'une branche de test
+
+```bash
+git branch      # Vérifie les branches
+git checkout -b test
+touch test.txt
+git add test.txt
+git commit -m "fonction de test ajoutée"
+```
+
+### Retour à la branche principale et modification
+
+```bash
+git checkout main
+echo "Nous avons maintenant créé une nouvelle branche de test" >> README.md
+git add README.md
+git commit -m "nouveau commit sur la branche principale"
+```
+
+### Visualisation de l’historique
+
+```bash
+git log --graph --oneline --all --decorate --topo-order
+```
+
+### Fusion de la branche test dans main
+
+```bash
+git checkout main
+git merge test
+```
+
+## 6. Vérification finale
+
+```bash
+git log --graph --oneline --all --decorate --topo-order
+ls    # test.txt doit maintenant être présent dans main
+```
 
 ---
 
-### 3. Pousser un dépôt existant sur GitHub
-
-#### a. Créez un nouveau dépôt sur GitHub (vide) nommé `tp1`.
-
-#### b. Dans votre terminal :
-
-```bash
-cd ~/TP-GIT-equipe06/tp1
-git remote add origin git@github.com:<Nailledo>/tp1.git
-git branch  # pour vérifier la branche (main ou master)
-git push -u origin master  # ou main
-```
-
-Cela lie votre dépôt local à celui sur GitHub. Félicitations ! 🎉
-
----
-
-### 4. Séquence de travail avec un dépôt distant
-
-Voici une séquence de commandes typique pour travailler avec un dépôt distant :
-
-```bash
-git pull                            # Récupérer les dernières modifications
-git status                          # Voir les fichiers modifiés
-git add .                           # Ajouter tous les fichiers
-git commit -m "Message de commit"  # Valider les modifications
-git push                            # Envoyer vers le dépôt distant
-```
-
----
-
-### 5. Cloner un dépôt distant
-
-Au lieu d'initialiser un dépôt avec `git init`, vous pouvez directement **cloner** un dépôt distant :
-
-```bash
-cd ~/courseGIT
-git clone git@github.com:<Nailledo>/tp2.git
-```
-
-Cela crée un nouveau dossier `tp2` déjà configuré avec un dépôt Git fonctionnel et connecté à GitHub.
-
-
-
-
+**Fin du TP3 :** Tous les fichiers sont en place, les fonctionnalités implémentées et les branches utilisées correctement.
