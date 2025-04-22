@@ -1,7 +1,7 @@
 public class Portefeuille {
   private Cryptomonnaie monnaie;
-  private double montant; // Soit le nombre de jetons
-  private String proprietaire;
+  private double        montant; // Soit le nombre de jetons
+  private String     proprietaire;
 
   public Portefeuille(Cryptomonnaie monnaie, double montant, String proprietaire){
       this.monnaie      = monnaie;
@@ -19,9 +19,13 @@ public class Portefeuille {
    * @return Vrai si la transaction a été effectuée, faux sinon.  
    */
   public boolean transfertDevise (Portefeuille destination, double montantJetons){
-      /**
-           FONCTION À IMPLEMENTER
-	  **/
+    if(this.monnaie.equals(destination.getMonnaie()) &&
+         this.montant >= montantJetons){
+          this.montant -= montantJetons;
+          destination.montant += montantJetons;
+          return true;
+      }
+
       return false;
   }
 
@@ -33,9 +37,11 @@ public class Portefeuille {
    * @return true si le montant en euros est supérieur ou égal à 0 
    */
   public boolean achatDevise (double montantEuros){
-	/**
-           FONCTION À IMPLEMENTER
-	**/
+	if(montantEuros >= 0){
+        double montantJetons = montantEuros / this.monnaie.getValeurDeJeton();
+        this.montant += montantJetons;
+        return true;
+    }
     return false;
   }
 
