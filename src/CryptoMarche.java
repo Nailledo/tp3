@@ -45,7 +45,9 @@ public class CryptoMarche {
     public double capitalMonneaie(Cryptomonnaie monnaie){
         double capital = 0;
         for(Portefeuille p : this.portefeuilles){
-            capital += p.capitalMonnaie(monnaie);
+            if(p.getMonnaie().equals(monnaie)){
+                capital += p.capitalMonnaie(monnaie);
+            }
         }
 
         return capital;
