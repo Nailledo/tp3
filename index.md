@@ -1,4 +1,4 @@
-# 🎉 Bienvenue sur le site le plus DINGUE du TP3 ! 🥳
+# 🎉 Bienvenue sur le site le plus DINGUE de l'équipe 6 ! 🥳
 
 > Ce site est généré automatiquement à partir du dépôt **tp3**. Et ouais, t’as bien lu. Automagiquement. ✨
 
@@ -29,7 +29,7 @@ Salut ! Moi c’est **Athos** (ou Porthos si c’est pas moi). Je participe à u
 
 ## 📸 Mème du siècle
 
-<img src="[https://i.imgflip.com/6zws1p.jpg](https://ih1.redbubble.net/image.1684651627.5213/fpp,small,lustre,wall_texture,product,750x1000.jpg)" alt="Meme code" width="500"/>
+<img src="https://i.imgflip.com/6zws1p.jpg](https://ih1.redbubble.net/image.1684651627.5213/fpp,small,lustre,wall_texture,product,750x1000.jpg)" alt="Meme code" width="500"/>
 
 ---
 
@@ -42,12 +42,3 @@ public class CryptoExplosion {
     }
 }
 ```
-
-
-graph LR
-A[Projet TP3] --> B((Idées))
-B --> C{Fusion ?}
-C -->|Oui| D[Pull Request]
-C -->|Non| E[Bug 🐞]
-D --> F[Masterpiece 💎]
-E --> F
