@@ -1,5 +1,5 @@
-**Athos :** Ethan Damestoy
-**Porthos :** Jonathan Leclerc
+**Athos :** Ethan
+**Porthos :** Jonathan 
 
 **Groupe :** 06
 
