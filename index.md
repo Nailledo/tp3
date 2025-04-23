@@ -29,7 +29,7 @@ Salut ! Moi c’est **Athos** (ou Porthos si c’est pas moi). Je participe à u
 
 ## 📸 Mème du siècle
 
-<img src="assets/monimage.png" alt="Chat mignon" style="cursor:pointer;" onclick="document.getElementById('miaou').play();">
+<img src="assets/chat.png" alt="Chat mignon" style="cursor:pointer;" onclick="document.getElementById('miaou').play();">
 <audio id="miaou" src="assets/miaou.mp3"></audio>
 
 ---
