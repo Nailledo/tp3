@@ -1,4 +1,15 @@
+**Athos :** Ethan Damestoy
+**Porthos :** Jonathan Leclerc
+
+**Groupe :** 06
+
+**Année :** 2025
+
+**IUT Le Havre - Cours GIT**
+
 # Compte rendu TP3 - Projet Java Git Collaboratif
+
+---
 
 ## 1. Clonage et synchronisation du dépôt
 
